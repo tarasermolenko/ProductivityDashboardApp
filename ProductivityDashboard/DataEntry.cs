@@ -28,8 +28,19 @@ namespace ProductivityDashboard
         public DataEntry()
         {
             InitializeComponent();
+            this.KeyPreview = true;  // will handle key events even if a specific control, such as a ListBox, is currently focused.
             LoadData();
             WireUpList();
+            WireUpEvents();
+            this.FormClosing += new FormClosingEventHandler(DataEntry_FormClosing);
+
+        }
+
+        private void WireUpEvents()
+        {
+            TaskList.KeyDown += new KeyEventHandler(TaskList_KeyDown);
+            ReminderList.KeyDown += new KeyEventHandler(ReminderList_KeyDown);
+
         }
         private void LoadData()
         {
@@ -45,7 +56,6 @@ namespace ProductivityDashboard
                 reminders = JsonSerializer.Deserialize<BindingList<ReminderModel>>(remindersJson);
             }
 
-            // Load checkbox states
             checkBoxStates = LoadCheckboxStates();
             InitializeCheckboxStates();
 
@@ -87,6 +97,31 @@ namespace ProductivityDashboard
 
         }
 
+        private void TaskList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (TaskList.SelectedItem != null)
+                {
+                    TaskModel selectedTask = (TaskModel)TaskList.SelectedItem;
+                    tasks.Remove(selectedTask);
+                    SaveData(); 
+                }
+            }
+        }
+
+        private void ReminderList_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Delete)
+            {
+                if (ReminderList.SelectedItem != null)
+                {
+                    ReminderModel selectedReminder = (ReminderModel)ReminderList.SelectedItem;
+                    reminders.Remove(selectedReminder);
+                    SaveData(); 
+                }
+            }
+        }
 
         private void TaskAddButton_Click(object sender, EventArgs e)
         {
@@ -126,7 +161,6 @@ namespace ProductivityDashboard
             var remindersJson = JsonSerializer.Serialize(reminders);
             File.WriteAllText(RemindersFileName, remindersJson);
 
-            // Save checkbox states
             checkBoxStates.Clear();
             foreach (var control in this.Controls)
             {
@@ -140,8 +174,33 @@ namespace ProductivityDashboard
 
         }
 
-        private void SaveButton_Click(object sender, EventArgs e)
+        private void DataEntry_FormClosing(object sender, FormClosingEventArgs e)
         {
+            SaveData();
+        }
+
+        private void ClearCheckListButton_Click(object sender, EventArgs e)
+        {
+            foreach (var control in this.Controls)
+            {
+                if (control is CheckBox checkbox && checkbox.Name.StartsWith("Daily"))
+                {
+                    checkbox.Checked = false;
+                }
+            }
+
+            SaveData(); 
+        }
+
+        private void ClearWeeklyButton_Click(object sender, EventArgs e)
+        {
+            foreach (var control in this.Controls)
+            {
+                if (control is CheckBox checkbox && !checkbox.Name.StartsWith("Daily"))
+                {
+                    checkbox.Checked = false;
+                }
+            }
             SaveData();
         }
     }
