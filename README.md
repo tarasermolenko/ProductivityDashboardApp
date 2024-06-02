@@ -1,5 +1,5 @@
 Desktop App for personal used.
 
-WinForms. Saving State Across Sessions. OOP.
+WinForms. JSON Files for saving state. OOP.
 
 ![alt text](WINFORMSPROJ.png)
