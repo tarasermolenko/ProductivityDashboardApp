@@ -33,12 +33,10 @@
             this.ToDoLabel = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.FitnessLabel = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.listView3 = new System.Windows.Forms.ListView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.BenchCheckBox = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
@@ -57,17 +55,22 @@
             this.checkBox16 = new System.Windows.Forms.CheckBox();
             this.checkBox17 = new System.Windows.Forms.CheckBox();
             this.checkBox18 = new System.Windows.Forms.CheckBox();
+            this.checkBox21 = new System.Windows.Forms.CheckBox();
+            this.checkBox22 = new System.Windows.Forms.CheckBox();
+            this.checkBox23 = new System.Windows.Forms.CheckBox();
+            this.checkBox24 = new System.Windows.Forms.CheckBox();
+            this.ClearCheckListButton = new System.Windows.Forms.Button();
+            this.TaskList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // RemindersLabel
             // 
             this.RemindersLabel.AutoSize = true;
-            this.RemindersLabel.Location = new System.Drawing.Point(8, 21);
+            this.RemindersLabel.Location = new System.Drawing.Point(12, 29);
             this.RemindersLabel.Name = "RemindersLabel";
             this.RemindersLabel.Size = new System.Drawing.Size(191, 40);
             this.RemindersLabel.TabIndex = 0;
             this.RemindersLabel.Text = "Reminders";
-            this.RemindersLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // textBox1
             // 
@@ -79,12 +82,11 @@
             // ToDoLabel
             // 
             this.ToDoLabel.AutoSize = true;
-            this.ToDoLabel.Location = new System.Drawing.Point(583, 21);
+            this.ToDoLabel.Location = new System.Drawing.Point(583, 29);
             this.ToDoLabel.Name = "ToDoLabel";
-            this.ToDoLabel.Size = new System.Drawing.Size(115, 40);
+            this.ToDoLabel.Size = new System.Drawing.Size(113, 40);
             this.ToDoLabel.TabIndex = 0;
-            this.ToDoLabel.Text = "To Do";
-            this.ToDoLabel.Click += new System.EventHandler(this.label1_Click);
+            this.ToDoLabel.Text = "Tasks";
             // 
             // textBox2
             // 
@@ -101,25 +103,6 @@
             this.FitnessLabel.Size = new System.Drawing.Size(261, 40);
             this.FitnessLabel.TabIndex = 2;
             this.FitnessLabel.Text = "Weekly Fitness";
-            this.FitnessLabel.Click += new System.EventHandler(this.label1_Click_1);
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(590, 158);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(465, 593);
-            this.listView1.TabIndex = 5;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // listView3
-            // 
-            this.listView3.HideSelection = false;
-            this.listView3.Location = new System.Drawing.Point(15, 162);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(470, 588);
-            this.listView3.TabIndex = 7;
-            this.listView3.UseCompatibleStateImageBehavior = false;
             // 
             // button1
             // 
@@ -147,27 +130,27 @@
             this.SaveButton.TabIndex = 11;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
-            this.SaveButton.Click += new System.EventHandler(this.button4_Click);
             // 
-            // checkBox1
+            // BenchCheckBox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(1181, 88);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(219, 44);
-            this.checkBox1.TabIndex = 12;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.BenchCheckBox.AutoSize = true;
+            this.BenchCheckBox.Location = new System.Drawing.Point(1181, 88);
+            this.BenchCheckBox.Name = "BenchCheckBox";
+            this.BenchCheckBox.Size = new System.Drawing.Size(145, 44);
+            this.BenchCheckBox.TabIndex = 12;
+            this.BenchCheckBox.Text = "Bench";
+            this.BenchCheckBox.UseVisualStyleBackColor = true;
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Location = new System.Drawing.Point(1181, 138);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(219, 44);
+            this.checkBox2.Size = new System.Drawing.Size(115, 44);
             this.checkBox2.TabIndex = 13;
-            this.checkBox2.Text = "checkBox2";
+            this.checkBox2.Text = "Row";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -178,6 +161,7 @@
             this.checkBox3.TabIndex = 14;
             this.checkBox3.Text = "checkBox3";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
             // 
             // checkBox4
             // 
@@ -247,7 +231,6 @@
             this.DailyWaterLabel.Size = new System.Drawing.Size(203, 40);
             this.DailyWaterLabel.TabIndex = 21;
             this.DailyWaterLabel.Text = "Daily Water";
-            this.DailyWaterLabel.Click += new System.EventHandler(this.label1_Click_2);
             // 
             // checkBox10
             // 
@@ -334,10 +317,69 @@
             this.checkBox18.AutoSize = true;
             this.checkBox18.Location = new System.Drawing.Point(1462, 88);
             this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(239, 44);
+            this.checkBox18.Size = new System.Drawing.Size(139, 44);
             this.checkBox18.TabIndex = 22;
-            this.checkBox18.Text = "checkBox18";
+            this.checkBox18.Text = "Cup 1";
             this.checkBox18.UseVisualStyleBackColor = true;
+            // 
+            // checkBox21
+            // 
+            this.checkBox21.AutoSize = true;
+            this.checkBox21.Location = new System.Drawing.Point(1181, 683);
+            this.checkBox21.Name = "checkBox21";
+            this.checkBox21.Size = new System.Drawing.Size(239, 44);
+            this.checkBox21.TabIndex = 34;
+            this.checkBox21.Text = "checkBox21";
+            this.checkBox21.UseVisualStyleBackColor = true;
+            // 
+            // checkBox22
+            // 
+            this.checkBox22.AutoSize = true;
+            this.checkBox22.Location = new System.Drawing.Point(1181, 633);
+            this.checkBox22.Name = "checkBox22";
+            this.checkBox22.Size = new System.Drawing.Size(239, 44);
+            this.checkBox22.TabIndex = 33;
+            this.checkBox22.Text = "checkBox22";
+            this.checkBox22.UseVisualStyleBackColor = true;
+            // 
+            // checkBox23
+            // 
+            this.checkBox23.AutoSize = true;
+            this.checkBox23.Location = new System.Drawing.Point(1181, 583);
+            this.checkBox23.Name = "checkBox23";
+            this.checkBox23.Size = new System.Drawing.Size(239, 44);
+            this.checkBox23.TabIndex = 32;
+            this.checkBox23.Text = "checkBox23";
+            this.checkBox23.UseVisualStyleBackColor = true;
+            // 
+            // checkBox24
+            // 
+            this.checkBox24.AutoSize = true;
+            this.checkBox24.Location = new System.Drawing.Point(1181, 533);
+            this.checkBox24.Name = "checkBox24";
+            this.checkBox24.Size = new System.Drawing.Size(239, 44);
+            this.checkBox24.TabIndex = 31;
+            this.checkBox24.Text = "checkBox24";
+            this.checkBox24.UseVisualStyleBackColor = true;
+            // 
+            // ClearCheckListButton
+            // 
+            this.ClearCheckListButton.Location = new System.Drawing.Point(1181, 770);
+            this.ClearCheckListButton.Name = "ClearCheckListButton";
+            this.ClearCheckListButton.Size = new System.Drawing.Size(532, 75);
+            this.ClearCheckListButton.TabIndex = 35;
+            this.ClearCheckListButton.Text = "Clear Check List";
+            this.ClearCheckListButton.UseVisualStyleBackColor = true;
+            // 
+            // TaskList
+            // 
+            this.TaskList.FormattingEnabled = true;
+            this.TaskList.ItemHeight = 40;
+            this.TaskList.Location = new System.Drawing.Point(590, 162);
+            this.TaskList.Name = "TaskList";
+            this.TaskList.Size = new System.Drawing.Size(465, 604);
+            this.TaskList.TabIndex = 36;
+            this.TaskList.SelectedIndexChanged += new System.EventHandler(this.TaskList_SelectedIndexChanged);
             // 
             // DataEntry
             // 
@@ -345,6 +387,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1751, 889);
+            this.Controls.Add(this.TaskList);
+            this.Controls.Add(this.ClearCheckListButton);
+            this.Controls.Add(this.checkBox21);
+            this.Controls.Add(this.checkBox22);
+            this.Controls.Add(this.checkBox23);
+            this.Controls.Add(this.checkBox24);
             this.Controls.Add(this.checkBox10);
             this.Controls.Add(this.checkBox11);
             this.Controls.Add(this.checkBox12);
@@ -363,12 +411,10 @@
             this.Controls.Add(this.checkBox4);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.BenchCheckBox);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.listView3);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.FitnessLabel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.ToDoLabel);
@@ -390,12 +436,10 @@
         private System.Windows.Forms.Label ToDoLabel;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label FitnessLabel;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button SaveButton;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox BenchCheckBox;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
@@ -414,6 +458,12 @@
         private System.Windows.Forms.CheckBox checkBox16;
         private System.Windows.Forms.CheckBox checkBox17;
         private System.Windows.Forms.CheckBox checkBox18;
+        private System.Windows.Forms.CheckBox checkBox21;
+        private System.Windows.Forms.CheckBox checkBox22;
+        private System.Windows.Forms.CheckBox checkBox23;
+        private System.Windows.Forms.CheckBox checkBox24;
+        private System.Windows.Forms.Button ClearCheckListButton;
+        private System.Windows.Forms.ListBox TaskList;
     }
 }
 

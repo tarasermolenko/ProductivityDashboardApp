@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProductivityDashboard
+namespace DashLibrary
 {
-    internal class TasksModel
+    public class TaskModel
     {
+        public string task { get; set;}
+        public string dueDate { get; set;}
+
     }
 }
