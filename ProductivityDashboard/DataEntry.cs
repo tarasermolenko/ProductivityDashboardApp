@@ -20,22 +20,12 @@ namespace ProductivityDashboard
         {
             InitializeComponent();
 
+            tasks.Add(new TaskModel("Workout"));
+    
             TaskList.DataSource = tasks;
+            TaskList.DisplayMember = nameof(TaskModel.task);
         }
 
-        private void TaskList_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void checkBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox3_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

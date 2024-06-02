@@ -9,7 +9,11 @@ namespace DashLibrary
     public class TaskModel
     {
         public string task { get; set;}
-        public string dueDate { get; set;}
+
+        public TaskModel(string task)
+        {
+            this.task = task;
+        }
 
     }
 }
