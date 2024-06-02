@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CheckBoxState.cs" />
+    <Compile Include="ReminderModel.cs" />
     <Compile Include="TaskModel.cs" />
     <Compile Include="UserControl1.cs">
       <SubType>UserControl</SubType>

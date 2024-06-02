@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.RemindersLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ReminderText = new System.Windows.Forms.TextBox();
             this.ToDoLabel = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TaskText = new System.Windows.Forms.TextBox();
             this.FitnessLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ReminderAddButton = new System.Windows.Forms.Button();
+            this.TaskAddButton = new System.Windows.Forms.Button();
             this.SaveButton = new System.Windows.Forms.Button();
             this.BenchCheckBox = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -67,6 +67,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox19 = new System.Windows.Forms.CheckBox();
+            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.checkBox25 = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // RemindersLabel
@@ -78,12 +80,13 @@
             this.RemindersLabel.TabIndex = 0;
             this.RemindersLabel.Text = "Reminders";
             // 
-            // textBox1
+            // ReminderText
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(329, 48);
-            this.textBox1.TabIndex = 1;
+            this.ReminderText.BackColor = System.Drawing.SystemColors.Control;
+            this.ReminderText.Location = new System.Drawing.Point(15, 84);
+            this.ReminderText.Name = "ReminderText";
+            this.ReminderText.Size = new System.Drawing.Size(329, 48);
+            this.ReminderText.TabIndex = 1;
             // 
             // ToDoLabel
             // 
@@ -94,12 +97,13 @@
             this.ToDoLabel.TabIndex = 0;
             this.ToDoLabel.Text = "Tasks";
             // 
-            // textBox2
+            // TaskText
             // 
-            this.textBox2.Location = new System.Drawing.Point(590, 84);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(329, 48);
-            this.textBox2.TabIndex = 1;
+            this.TaskText.BackColor = System.Drawing.SystemColors.Control;
+            this.TaskText.Location = new System.Drawing.Point(590, 84);
+            this.TaskText.Name = "TaskText";
+            this.TaskText.Size = new System.Drawing.Size(329, 48);
+            this.TaskText.TabIndex = 3;
             // 
             // FitnessLabel
             // 
@@ -110,32 +114,37 @@
             this.FitnessLabel.TabIndex = 2;
             this.FitnessLabel.Text = "Weekly Fitness";
             // 
-            // button1
+            // ReminderAddButton
             // 
-            this.button1.Location = new System.Drawing.Point(350, 81);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(130, 51);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.ReminderAddButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ReminderAddButton.Location = new System.Drawing.Point(350, 81);
+            this.ReminderAddButton.Name = "ReminderAddButton";
+            this.ReminderAddButton.Size = new System.Drawing.Size(130, 51);
+            this.ReminderAddButton.TabIndex = 2;
+            this.ReminderAddButton.Text = "add";
+            this.ReminderAddButton.UseVisualStyleBackColor = false;
+            this.ReminderAddButton.Click += new System.EventHandler(this.ReminderAddButton_Click);
             // 
-            // button2
+            // TaskAddButton
             // 
-            this.button2.Location = new System.Drawing.Point(925, 81);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(130, 51);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.TaskAddButton.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.TaskAddButton.Location = new System.Drawing.Point(925, 81);
+            this.TaskAddButton.Name = "TaskAddButton";
+            this.TaskAddButton.Size = new System.Drawing.Size(130, 51);
+            this.TaskAddButton.TabIndex = 4;
+            this.TaskAddButton.Text = "add";
+            this.TaskAddButton.UseVisualStyleBackColor = false;
+            this.TaskAddButton.Click += new System.EventHandler(this.TaskAddButton_Click);
             // 
             // SaveButton
             // 
             this.SaveButton.Location = new System.Drawing.Point(15, 788);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(169, 75);
+            this.SaveButton.Size = new System.Drawing.Size(1090, 75);
             this.SaveButton.TabIndex = 11;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // BenchCheckBox
             // 
@@ -377,20 +386,22 @@
             // 
             // TaskList
             // 
+            this.TaskList.BackColor = System.Drawing.SystemColors.HighlightText;
             this.TaskList.FormattingEnabled = true;
             this.TaskList.ItemHeight = 40;
             this.TaskList.Location = new System.Drawing.Point(590, 162);
             this.TaskList.Name = "TaskList";
-            this.TaskList.Size = new System.Drawing.Size(465, 604);
+            this.TaskList.Size = new System.Drawing.Size(515, 604);
             this.TaskList.TabIndex = 36;
             // 
             // ReminderList
             // 
+            this.ReminderList.BackColor = System.Drawing.SystemColors.HighlightText;
             this.ReminderList.FormattingEnabled = true;
             this.ReminderList.ItemHeight = 40;
             this.ReminderList.Location = new System.Drawing.Point(19, 162);
             this.ReminderList.Name = "ReminderList";
-            this.ReminderList.Size = new System.Drawing.Size(465, 604);
+            this.ReminderList.Size = new System.Drawing.Size(503, 604);
             this.ReminderList.TabIndex = 37;
             // 
             // button3
@@ -441,12 +452,34 @@
             this.checkBox19.Text = "Protein";
             this.checkBox19.UseVisualStyleBackColor = true;
             // 
+            // checkBox20
+            // 
+            this.checkBox20.AutoSize = true;
+            this.checkBox20.Location = new System.Drawing.Point(1462, 733);
+            this.checkBox20.Name = "checkBox20";
+            this.checkBox20.Size = new System.Drawing.Size(115, 44);
+            this.checkBox20.TabIndex = 43;
+            this.checkBox20.Text = "Fruit";
+            this.checkBox20.UseVisualStyleBackColor = true;
+            // 
+            // checkBox25
+            // 
+            this.checkBox25.AutoSize = true;
+            this.checkBox25.Location = new System.Drawing.Point(1181, 733);
+            this.checkBox25.Name = "checkBox25";
+            this.checkBox25.Size = new System.Drawing.Size(189, 44);
+            this.checkBox25.TabIndex = 44;
+            this.checkBox25.Text = "PushUps";
+            this.checkBox25.UseVisualStyleBackColor = true;
+            // 
             // DataEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(21F, 40F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(1828, 948);
+            this.Controls.Add(this.checkBox25);
+            this.Controls.Add(this.checkBox20);
             this.Controls.Add(this.checkBox19);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.label1);
@@ -479,17 +512,18 @@
             this.Controls.Add(this.checkBox2);
             this.Controls.Add(this.BenchCheckBox);
             this.Controls.Add(this.SaveButton);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.TaskAddButton);
+            this.Controls.Add(this.ReminderAddButton);
             this.Controls.Add(this.FitnessLabel);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.TaskText);
             this.Controls.Add(this.ToDoLabel);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.ReminderText);
             this.Controls.Add(this.RemindersLabel);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Margin = new System.Windows.Forms.Padding(7, 6, 7, 6);
             this.Name = "DataEntry";
-            this.Text = "Productivity Dashboard";
+            this.Text = "Taras\' Productivity Dashboard";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -498,12 +532,12 @@
         #endregion
 
         private System.Windows.Forms.Label RemindersLabel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox ReminderText;
         private System.Windows.Forms.Label ToDoLabel;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TaskText;
         private System.Windows.Forms.Label FitnessLabel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ReminderAddButton;
+        private System.Windows.Forms.Button TaskAddButton;
         private System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.CheckBox BenchCheckBox;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -536,6 +570,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox19;
+        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.CheckBox checkBox25;
     }
 }
 
