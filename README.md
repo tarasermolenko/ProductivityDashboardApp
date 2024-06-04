@@ -1,4 +1,4 @@
-Desktop App for personal used.
+Desktop App for personal use.
 
 WinForms. JSON Files for saving state. OOP.
 
